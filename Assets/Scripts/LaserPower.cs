@@ -16,13 +16,16 @@ public class LaserPower : Entity
     public override void OnEnabled()
     {
         base.OnEnabled();
-        if (Laser.transform.position.y > 3.2f)
+        if (Laser.transform.position.y > -0.15f)
         {
             transform.Translate(new Vector3(0, 0.1f, 0) * -1 * 1);
         }
         StartCoroutine(GenerateRayon(2));
-        StartCoroutine(AfterTime(2));
-        GameManager.state.CallDestroy();
+        if (Laser.transform.position.y <= -0.15f)
+        {
+            StartCoroutine(AfterTime(5));
+            GameManager.state.CallDestroy();
+        }
 
     }
 
@@ -40,7 +43,7 @@ public class LaserPower : Entity
             UnSeulLaser = true;
             for (int i = 0; i < 1; i++)
             {
-                Instantiate(RayonLaser, Laser.transform.position, RayonLaser.transform.rotation);
+                Instantiate(RayonLaser, new Vector3(Laser.transform.position.x, Laser.transform.position.y + -0.54f, Laser.transform.position.z), RayonLaser.transform.rotation);
             }
         }
         

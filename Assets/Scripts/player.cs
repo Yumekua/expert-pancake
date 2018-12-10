@@ -40,7 +40,7 @@ public class player : MonoBehaviour
         screenPos = cam.WorldToScreenPoint(transform.position);
         DeplacementTouche();
 
-        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             SautTouche();
         }
