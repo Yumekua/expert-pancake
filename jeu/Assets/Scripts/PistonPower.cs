@@ -22,7 +22,7 @@ public class PistonPower : Entity
     public override void OnEnabled()
     {
         base.OnEnabled();
-        if (Piston.transform.position.y > 1.6f)
+        if (Piston.transform.position.y > -2.27f)
         {
             if (!AlreadyDown)
             {
@@ -30,7 +30,7 @@ public class PistonPower : Entity
             }
             
         }
-        if (Piston.transform.position.y <= 1.6f)
+        if (Piston.transform.position.y <= -2.27f)
         {
             AlreadyDown = true;
             StartCoroutine(AfterTime(2));
